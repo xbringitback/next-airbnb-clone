@@ -8,6 +8,7 @@ import {
   GiForestCamp,
   GiIsland,
   GiWindmill,
+  GiCactus,
 } from "react-icons/gi";
 import { MdOutlineVilla } from "react-icons/md";
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
@@ -81,7 +82,7 @@ export const categories = [
   },
   {
     label: "Desert",
-    icon: BsSnow,
+    icon: GiCactus,
     description: "This property is in the desert!",
   },
   {
@@ -90,7 +91,7 @@ export const categories = [
     description: "This property is in the barn!",
   },
   {
-    label: "Lux",
+    label: "Luxury",
     icon: IoDiamond,
     description: "This property is luxurious!",
   },

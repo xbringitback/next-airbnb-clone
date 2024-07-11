@@ -10,10 +10,12 @@ import ToasterProvider from "./providers/ToasterProvider";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
 import SearchModal from "./components/modals/SearchModal";
+import logo from "../../public/images/logo.png";
 
 export const metadata: Metadata = {
   title: "Airbnb",
   description: "Airbnb clone",
+  icons: [{ rel: "icon", url: logo.src }],
 };
 
 const font = Nunito({

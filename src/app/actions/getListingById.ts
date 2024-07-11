@@ -1,10 +1,10 @@
 import prisma from "@/app/libs/prismadb";
 
-interface Iparams {
+interface IParams {
   listingId?: string;
 }
 
-export default async function getListingById(params: Iparams) {
+export default async function getListingById(params: IParams) {
   try {
     const { listingId } = params;
 
@@ -17,9 +17,7 @@ export default async function getListingById(params: Iparams) {
       },
     });
 
-    if (!listing) {
-      return null;
-    }
+    if (!listing) return null;
 
     return {
       ...listing,
