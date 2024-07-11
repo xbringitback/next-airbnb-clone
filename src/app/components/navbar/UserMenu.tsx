@@ -21,16 +21,21 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleOpen = useCallback(() => {
-    setIsOpen((value) => !value);
+    setIsOpen((prev) => !prev);
   }, []);
 
   const onRent = useCallback(() => {
-    if (!currentUser) {
-      loginModal.onOpen();
-    }
+    if (!currentUser) return loginModal.onOpen();
     rentModal.onOpen();
   }, [currentUser, loginModal, rentModal]);
+
+  const handleLogout = useCallback(() => {
+    signOut();
+    router.push("/");
+  }, [router]);
+
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
@@ -73,7 +78,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 />
                 <MenuItem onClick={rentModal.onOpen} label="Airbnb my home" />
                 <hr />
-                <MenuItem onClick={() => signOut()} label="Logout" />
+                <MenuItem onClick={handleLogout} label="Logout" />
               </>
             ) : (
               <>
